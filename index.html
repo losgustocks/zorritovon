@@ -1,0 +1,1735 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+    <meta charset="UTF-8">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Tokyo+Zoo&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+        
+    <!-- Font-Awesome -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+
+<style>
+
+body {
+  position: relative;
+  background-color: #000;
+}
+
+.body2 { 
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+  background-color: transparent;
+  margin-top: min(100vh,calc(100vw - (100vw/2.5) + 5px));
+}
+
+.gradup {
+  height: 123px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  margin-top: -4.625rem;
+  background: linear-gradient(0deg, rgb(0 0 0) 10%, rgb(0 0 0 / 0%) 100%);
+}
+
+.navbar {
+  background-color: #262626 !important;
+  padding: 0.625rem;
+  z-index: 500;
+  width: 100vw;
+  border-bottom: 0.125 solid black;
+}
+
+/*FIJA LA UBICACION DEL MENU DESPLEGABLE DEL TOGGLE PARA IPHONE*/
+@media (max-width: 600px) {
+  .navbar-collapse {
+    background-color: #0000009e; 
+    margin-top: -1rem;
+    margin-left: 12.6rem; 
+  }
+}
+
+.navbar .navbar-nav > li > a {
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.nav-link:focus, .nav-link:hover {
+    color: rgb(255 255 255 / 86%);
+}
+
+.navbar-expand-md .navbar-nav .nav-link {
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+/*FOTO DE LA BANDA - BACKGROUND*/
+.cont {
+  position: fixed;
+  z-index: 0;
+  top: 3.75rem;
+}
+
+.cont img {
+  width: 100vw;
+  /* height: 100%; */
+  /* object-fit: cover; */
+  /* object-position: center center; */
+}
+
+/*
+.tapafoto {
+  background-image: url(c2x2.png);
+  scale: 2;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+}*/
+
+.customtitle {
+  position: fixed;
+  scale: 0.6;
+  padding: 1.25rem 1.25rem 1.25rem;
+  background: rgb(187, 184, 184) repeat scroll center center !important;
+  top: -0.75rem; 
+  border: 0.188rem solid #070a0a !important;
+  z-index: 1510;
+  left: -5.813rem;
+  margin: auto;
+  text-align: center;
+  max-width: 500px;
+  -ms-transform: rotate(-5deg);
+  transform: rotate(351deg);
+  animation: shake 2s cubic-bezier(.56, .07, .19, .97) both;
+  box-shadow: 0 0 0.938rem 0 #000;
+}
+
+@keyframes shake {
+  10%,
+  90% {
+      transform: translate3d(-1px, 0, 0);
+  }
+  20%,
+  80% {
+      transform: translate3d(2px, 0, 0);
+  }
+  30%,
+  50%,
+  70% {
+      transform: translate3d(-4px, 0, 0);
+  }
+  40%,
+  60% {
+      transform: translate3d(4px, 0, 0);
+  }
+}
+
+@media (max-width: 600px) {
+  .customtitle {
+    position: fixed;
+    scale: 0.5;
+    padding: 1.25rem 1.25rem 1.25rem;
+    background: rgb(187 184 184) repeat scroll center center !important;
+    top: -1.313rem;
+    border: 0.188rem solid #070a0a !important;
+    z-index: 1510;
+    left: -7.5rem;
+    margin: auto;
+    max-width: 500px;
+    -ms-transform: rotate(-5deg);
+    transform: rotate(349deg);
+    animation: shake 2s cubic-bezier(.56, .07, .19, .97) both;
+    box-shadow: 0 0 0.938rem 0 #000;
+  }
+  .navbar-toggler { 
+    margin-left: auto;
+    padding: 0.4rem;
+  }
+  .navbar.bg-dark {
+    height: 3.938rem;
+  }
+}
+
+/* ----------- LOGO EN IPHONE HORIZONTAL ----------- */
+@media only screen 
+  and (min-width: 600px) 
+  and (max-height: 768px) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+  .customtitle {
+    position: fixed;
+    scale: 0.4;
+    padding: 1.25rem 1.25rem 1.25rem;
+    background: rgb(187, 184, 184) repeat scroll center center !important;
+    top: 1.4rem;
+    border: 0.188rem solid #070a0a !important;
+    z-index: 1510;
+    left: -8rem;
+    margin: auto;
+    text-align: center;
+    max-width: 500px;
+    -ms-transform: rotate(-5deg);
+    transform: rotate(351deg);
+    animation: shake 2s cubic-bezier(.56, .07, .19, .97) both;
+    box-shadow: 0 0 0.938rem 0 #000;
+  }
+}
+
+/* ----------- LOGO EN IPAD/IPAD PRO Y TABLET ----------- */
+@media only screen 
+  and (min-width: 768px) 
+  and (max-height: 1366px) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+  .customtitle {
+    position: fixed;
+    scale: 0.5;
+    padding: 1.25rem 1.25rem 1.25rem;
+    background: rgb(187, 184, 184) repeat scroll center center !important;
+    top: 1.25rem;
+    border: 0.188rem solid #070a0a !important;
+    z-index: 1510;
+    left: -6.813rem;
+    margin: auto;
+    text-align: center;
+    max-width: 500px;
+    -ms-transform: rotate(-5deg);
+    transform: rotate(351deg);
+    animation: shake 2s cubic-bezier(.56, .07, .19, .97) both;
+    box-shadow: 0 0 0.938rem 0 #000;
+  }
+}
+
+.customtitle h2 {
+  padding: 0;
+  font-family: 'ZenTokyoZoo-Regular';
+  line-height: 1;
+  margin: 0;
+}
+
+.customtitle h2 i {
+  color: #ffffff;
+  font-family: 'ZenTokyoZoo-Regular';
+}
+
+.section-title h2 {
+  font-size: 5rem;
+  padding: 0;
+  margin: 0 0 0.5rem;
+  line-height: 1;
+  letter-spacing: 1px;
+  color: rgb(187, 184, 184);
+  font-family: 'Zen Tokyo Zoo';
+}
+
+/*TITULOS EN IPHONE*/
+@media (max-width: 768px) {
+  .section-title h2, .customtitle h2 {
+    font-size: 2.8rem;
+  }
+}
+
+/*TITULOS EN DISPOSITIVOS MÁS PEQUEÑOS EJ. S8*/
+@media only screen and (-webkit-min-device-pixel-ratio: 4) {
+  .section-title h2, .customtitle h2 {
+    font-size: 2.5rem;
+  }
+}
+
+/*TITULOS EN IPAD VERTICAL*/
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : portrait) {
+  .section-title h2, .customtitle h2 {
+    font-size: 4.3rem;
+    margin-top: 3.5rem;
+  }
+}
+
+.card img {
+  aspect-ratio: 4/3;
+  width:100%;
+  object-fit: cover;
+}
+
+.card {
+  margin: 0 0.5em;
+  box-shadow: 0.125rem 0.375rem 0.5rem 0 rgba(22, 22, 26, 0.18);
+  border: none;
+  background-color: black;
+  /* position: relative; */
+  border-radius: 0.375rem;
+}
+
+.card-body {
+  background-image: url(staff/texture.png);
+  box-shadow: 0 0.5rem 1.5rem 0.5rem black inset;
+  aspect-ratio: 4/3;
+  width:100%;
+  object-fit: cover;
+  color: #e3e3e3;
+  padding: 1rem 0.5rem 0 0.5rem;
+  height: 174px;
+  display: inline-block;
+}
+
+.card-title { 
+  font-size: 1.1rem;
+  font-weight: 500;
+  color:#fff;
+}
+
+/*CARD-TITLE EN IPHONE HORIZONTAL*/
+@media (min-width: 601px) and (max-width: 992px) { 
+  .card-title { 
+  font-size: 0.9rem;
+  }
+}
+
+.link-ig {
+  font-size: 1rem;
+  color: #dc3545;
+}
+
+.link-ig:hover {
+  color:#fff;
+}
+
+/*TEXTO CARDS*/
+.card-text {
+  font-family: 'Roboto';
+  font-size: 0.9rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  margin-top: -0.5rem;
+}
+
+/*CARD-TEXT EN IPAD (VERTICAL Y HORIZONTAL) Y IPHONE HORIZONTAL*/
+@media (min-width: 600px) and (max-width: 992px) { 
+  .card-text {
+    font-size: 0.7rem;
+  }
+}
+
+/* ----------- CARD-TEXT EN IPAD PRO ----------- */
+/* Portrait and Landscape */
+@media only screen 
+  and (min-width: 1024px) 
+  and (max-height: 1366px) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+  .card-text {
+    font-size: 0.8rem;
+  }
+}
+
+/*LETRAS DE COLOR CURSIVA EN TITLES*/
+.section-title h2 i {
+  color: #8f4c4e;
+}
+
+/*FX ZOOM FOTO CARD*/
+.imgZoomContainer {
+  width: fit-content;
+  overflow: hidden;
+  transition: all 1s 0s cubic-bezier(0, 0, 0.2, 1);
+}
+
+.imgZoomContainer >img {
+  transition: all 1s 0s cubic-bezier(0, 0, 0.24, -0.18), filter 2s 0s;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+.overflow {
+  overflow: hidden;
+}
+
+.section-button {
+  padding: 1.875rem 0 0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.table {color: #9d9d9d;}
+
+.mask {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-attachment: fixed;
+}
+
+.hover-overlay .mask {
+  --mdb-image-hover-transition:all 0.3s ease-in-out;
+  opacity:0;
+  transition:var(--mdb-image-hover-transition);
+}
+
+.hover-overlay .mask:hover {
+  opacity:1
+}
+
+.hover-zoom{
+  --mdb-image-hover-zoom-transition:all 0.3s linear;
+  --mdb-image-hover-zoom-transform:scale(1.1);
+}
+
+element.style {
+  background-color: rgba(251, 251, 251, 0.2);
+}
+
+/*FX ZOOM IMG*/
+.img-fx {
+  max-width: 100%;
+  height: auto;
+}
+.mov {
+  transition: all 0.7s 0s;
+}
+.fx-hover-zoom:hover {
+  transform: scale(1.18);
+}
+
+/*LINK TICKETS*/
+a  {
+  color:#9d9d9d;
+  text-decoration: none;
+}
+a:hover {
+  color: #dc3545;
+}
+
+/*BARRAS HORIZONTALES TABLA*/
+tbody tr {
+  border-color:#9d9d9d47;
+}
+
+tbody tr:hover {
+  color: #dc3545;
+  background-color: rgba(190, 192, 188, 0.075);
+}
+
+/*TAMAÑO DEL FONT DE LA TABLA*/
+table {
+  font-size: 1.2rem;
+}
+
+/*TABLA ADAPTADA PARA DISPOSITIVOS MOVILES*/
+ @media (max-width: 600px) {
+  .table-group-divider {
+    border-top: none;
+  }
+ 
+  table {
+    display: block;
+    width: 100%;
+  }
+  
+  thead {
+    display: none;
+    margin-top: none;
+  }
+  
+  tbody, tr, th, td {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+  
+  th {
+    font-size: 2.2rem;
+    color: #dc3545;
+  }
+
+  th, td {
+    border: none;
+  }
+  
+  tbody a {
+    margin-bottom: 1.5rem;
+  }
+
+  button {
+    margin-bottom: 1.5rem;
+  }
+
+  table .size {
+    font-size: 2rem;
+  }
+
+  .hr1 {
+    display: block;
+    width: 100%;
+  }
+}
+
+/*BANNER ANIMADO*/
+.box_animado2 {
+  width: 100%;
+  height: 200px;
+  background-image: url(logo.png);
+  background-position: 0px 0px;
+  background-repeat: repeat-x;
+  animation: animatedBackground 5s linear infinite;
+}
+@keyframes animatedBackground {
+  0% {background-position: 0 0;}
+  100% {background-position: 451px 0;}
+}
+
+/*NEWS*/
+.news_title {
+  font-family: 'Zen Tokyo Zoo';
+  color:rgb(187 184 184);
+  font-size: 2.6rem;
+}
+
+.news_text {
+  color: rgb(187 184 184);
+  text-align: justify;
+  font-family: 'Roboto';
+  font-size: 1.1rem;
+}
+
+.nota_text {
+  color: #97b2c1;
+  font-family: 'Roboto';
+  font-size: 1rem;
+}
+
+.nota_text h5 { 
+  color: #dc3545;
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
+.news_fuente {
+  font-size: 0.8rem; 
+  padding-bottom: 0.5rem;
+}
+
+/*CALLOUT - DIBUJA LOS MARCOS EN LAS NOTICIAS*/
+.bd-callout-warning {
+  border-left-color: #dc3545 !important;
+}
+
+.bd-callout {
+  padding: 1.6rem 0rem 1.18rem 0rem;
+  border-left-width: 0.25rem;
+  border-radius: 0.25rem;
+  position: relative;
+}
+
+.shadow {
+  box-shadow: 0 0.375rem 0.313rem -0.313rem #9b9d9e; 
+}
+
+.bd-callout:hover {
+  background-color: #2626265e; /*ó este color #5d9fe326;*/
+}
+
+/*VIDEOS*/
+.section-sliderv {
+  position: relative;
+  width: 100%;
+  /*height: 100vh;*/
+}
+
+.section-sliderv video {
+  /* position: absolute; */
+  /* top: 0; */
+  /* left: 0; */
+  width: 100%;
+  /* height: 100vh; */
+  object-fit: cover;
+  cursor: pointer;
+}
+
+/*FIJA LAS MEDIDAS DEL VIDEO EN IPHONE VERTICAL*/
+@media (max-width: 600px) {
+  .section-sliderv {
+    width: 100%;
+    height: 205px;
+  }
+  #slider {
+    width: 100%;
+    height: 205px;
+  }
+}
+/*EN IPHONE HORIZONTAL*/
+@media (min-width: 601px) and (max-width: 992px) { 
+  .section-sliderv {
+    width: 100%;
+    height: 100vh;
+  }
+  #slider {
+    width: 100%;
+    height: 100vh;
+  }
+}
+/*EN IPAD VERTICAL*/
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : portrait) {
+  .section-sliderv {
+    width: 100%;
+    height: 350px;
+  }
+  #slider {
+    width: 100%;
+    height: 350px;
+  }
+}
+/*EN IPAD HORIZONTAL*/
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : landscape) {
+  .section-sliderv {
+    width: 100%;
+    height: 500px;
+  }
+  #slider {
+    width: 100%;
+    height: 500px;
+  }
+}
+
+/*FX 'BURBUJA' SOBRE IMG*/
+.ripple {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  transition: all ease-in-out .5s;
+}
+
+.ripple::after {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 25%;
+	height: 100%;
+	width: 50%;
+	background-color: #000;
+	border-radius: 50%;
+	opacity: 0;
+	pointer-events: none;
+	transition: all ease-in-out 1s;
+	transform: scale(5, 5);
+}
+
+.ripple:active::after {
+	padding: 0;
+	margin: 0;
+	opacity: .2;
+	transition: 0s;
+	transform: scale(0, 0);
+} 
+
+/*CAROUSEL DE FOTOS*/
+.carousel-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;  /* Ajusta la altura donde lo necesite */
+}
+
+.carousel {
+  width: 80%; /*Tamaño del carousel*/
+}
+
+@media (max-width: 600px) {
+  .carousel-container {
+    height: auto;
+  }
+  .carousel {
+    width: 100%;
+  }
+}
+
+@media (max-width: 992px) { 
+  .carousel-container {
+    height: auto;
+  }
+  .carousel {
+    width: 100%;
+  }
+}
+
+.carousel-item img {
+  border-radius: 0.3rem;
+}
+
+/*FOLLOW*/
+.grid-follow .border-i {
+  border: 0.188rem solid #bbb8b8;
+}
+
+.grid-follow .border-i:hover {
+  border: 0.188rem solid white;
+}
+
+.grid-follow img {
+  padding: 0.313rem;
+  border: 0.188rem solid rgba(0, 0, 0, 0); /*Si quito el borde hace que la img se hunda en el hover*/
+  border-radius: 0.9rem;
+}
+
+.grid-follow img:hover {
+  transition: all ease-in-out .2s;
+  filter: brightness(1.2);
+  padding: 0.313rem;
+  border: 0.188rem solid #262626;
+  border-radius: 0.9rem;
+}
+
+.grid-follow a:hover { 
+  color: white !important;
+}
+
+.title-bio {
+  color: #bbb8b8;
+  font-size: 2.7em;
+  text-decoration:none; 
+  font-weight: lighter;
+  white-space: nowrap;
+}
+
+.title-bio:hover {
+  color: white;
+}
+
+.subtit-bio {
+  color:#bbb8b8;
+}
+
+/*EN IPHONE*/
+@media (max-width: 600px) {
+  .grid-follow .col-md-5 {
+   display: none;
+  }
+  .grid-follow .col-2 {
+    width: 33.3%;
+  }
+}
+
+/*EN IPAD VERTICAL*/
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : portrait) {
+  .grid-follow .col-2 {
+    width: 33.3%;
+  }
+}
+
+/*EN IPAD HORIZONTAL*/
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : landscape) {
+  .grid-follow .col-2 {
+    width: 25%;
+  }
+}
+
+/*BOOK*/
+.fx-border img {
+  padding:0.313rem;
+  border: 0.188rem solid black;
+  border-radius: 0.188rem;
+}
+
+.fx-border img:hover {
+  transition: all ease-in-out .2s;
+  padding: 0.313rem;
+  border: 0.188rem solid #262626;
+  border-radius: 0.188rem;
+}
+
+.link {
+  margin-top: 1.5rem;
+  font-weight: lighter;
+  text-align: center;
+}
+
+.link a {
+  font-size: 1.5em;
+}
+
+.link a:hover {
+  color: rgb(255 255 255 / 86%);
+}
+
+/*CONTACT*/
+.subtit-contact {
+  font-size: 1.5em;
+  color: #9d9d9d;
+}
+
+.form-control {
+  background-color:#ffffffd4;
+}
+
+.form-control:focus {
+  box-shadow: 0 0 0 0.25rem rgb(255 255 255 / 61%);
+}
+
+.form-control:hover {
+  box-shadow: 0px 0px 11px 5px rgb(255 255 255 / 29%);
+}
+
+label {
+  color: #9d9d9d;
+  padding-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+/*SPOTIFY*/
+.playlist {
+    text-align: center;
+    cursor: pointer;
+}
+
+.playlist img {
+  width: 80%;
+  height: auto;
+}
+
+/*EN IPHONE*/
+@media (max-width: 600px) {
+.playlist img {
+  width: 100%;
+  }
+}
+
+/*EN IPAD VERTICAL*/
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : portrait) {
+.playlist img {
+  width: 100%;
+  }
+}
+
+/*FLYERS*/
+.flyer .row {
+  --bs-gutter-x: 0.5rem !important;
+  --bs-gutter-y: 0.5rem !important;
+}
+
+.flyer .row img {
+  padding:0.313rem;
+  border: 0.188rem solid black;
+  border-radius: 0.188rem;
+  cursor: zoom-in;
+}
+
+.flyer .row img:(not-clickeable) {
+  cursor: zoom-out;
+}
+
+.flyer .row img:hover {
+  transition: all ease-in-out .2s;
+  filter: brightness(1.3);
+  padding: 0.313rem;
+  border: 0.188rem solid #262626;
+  border-radius: 0.188rem;
+}
+
+/*CODIGO PARA VENTANA EMERGENTE 1080px*/
+.modal {
+  display: none;
+  background-color: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+}
+
+.modal-dialog {
+  max-width: 1080px;
+}
+
+.modal-content {
+  border: none; /* Quita el borde blanco alrededor del contenido del modal */
+  background-color: transparent; /* Hace el fondo del modal transparente */
+}
+
+.modal-body {
+  text-align: center;
+  padding: 0; /* Quita el padding alrededor de la imagen dentro del modal */
+}
+
+.modal-body img {
+  max-width: 100%;
+  max-height: 100vh; /* Ajusta la altura máxima para evitar que la imagen se desborde del viewport */
+  display: block; /* Evita que aparezca un espacio adicional debajo de la imagen */
+  margin: 0 auto; /* Centra la imagen horizontalmente */
+}
+
+</style>
+
+<body>
+
+<!-- Header -->
+<div style="position: fixed;top: 0;z-index: 500;">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark xsticky-top">
+        
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+
+          <ul class="navbar-nav mx-auto text-center">
+              <li class="nav-item active">
+                <a class="nav-link" href="https://losgustocks.github.io/zorritovon/#index">HOME</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#tour">TOUR</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#news">NEWS</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#staff">STAFF</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#videos">VIDEOS</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#fotos">FOTOS</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#follow">FOLLOW</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#contact">CONTACT</a>
+              </li>
+          </ul>
+
+        </div>
+    </nav>
+</div>
+
+<!-- Fondo Video autoplay -->
+<div class="cont">
+    <div style="position:relative;text-align: center;width: 100vw;">
+       <div class="tapafoto"></div>
+        <video class="" id="background" playsinline autoplay muted loop style="width: 100%;"> 
+        <source src="backvideo2.mp4" type="video/mp4"/>
+        </video>
+    </div>
+</div>
+  
+
+<!-- Titulo -->
+<div class="customtitle">
+  <img src="logo.png">
+</div>
+
+
+<!-- Body2 (Contenedor de la página) -->
+<div class="body2">
+
+    <div style="background-color: black">
+        <div class="gradup"></div>
+        
+        <div class="mb-5"></div>
+        
+    <div class="container">
+
+          <section id="tour" class="section"><!--TOUR SECTION-->
+            <br><br><br>
+                <div class="section-title text-center">
+                    <h2>T<i>OU</i>R<i>DA</i>TES</h2>
+                </div>
+          </section>
+    
+    
+      <div class="box_animado2"></div>
+    
+      
+      <div class="table-responsive">
+      <table class="table">
+    
+      <thead>
+        <tr>
+          <th scope="col">FECHA</th>
+          <th scope="col">SHOW</th>
+          <th scope="col">CIUDAD</th>
+          <th scope="col" class="text-center">TICKET</th>
+        </tr>
+      </thead>
+    
+      <tbody class="table-group-divider">
+        <tr>
+          <th scope="row" class="col"><i>Septiembre 21</i></th>
+          <td class="col size"></td>
+          <td class="col">Rosario</td>
+          <td class="col text-center align-middle">PRÓXIMAMENTE</td>
+        </tr>
+        <tr>
+          <th scope="row" class="col"><i>Octubre 26</i></th>
+          <td class="col size">Lucille</td>
+          <td class="col"><a href="https://goo.gl/maps/WPbMxxHHkaJ4CA4R7" target="_blank">Palermo - Gorriti 5520</td>
+          <td class="col text-center align-middle">PRÓXIMAMENTE</td>
+        </tr>
+      </tbody>
+      </table>
+      </div>
+    
+<!--Comienzo bloque Flyers-->
+    
+    <section id="flyer" class="section"><!--EVENTOS-->
+      <br><br>
+      <div class="section-title text-center">
+        <h2>Eventos<i>Finalizados</i></h2>
+        <div class="text-danger" style="font-size: 2rem">SOLD OUT</div>
+      </div>
+    </section>
+
+    <div class="mb-2"></div>
+
+    <div class="container flyer text-center"> 
+      <div class="row">
+        <div class="col-md-4 col-6">
+          <img src="tour/flyer_1.jpg" class="img-fluid" style="cursor: zoom-in">
+        </div>
+        <div class="col-md-4 col-6">
+          <img src="tour/flyer_2.jpg" class="img-fluid" style="cursor: zoom-in">
+        </div>
+        <div class="col-md-4 col-6">
+          <img src="tour/flyer_3.jpg" class="img-fluid" style="cursor: zoom-in">
+        </div>
+        <div class="col-md-4 col-6">
+          <img src="tour/flyer_4.jpg" class="img-fluid" style="cursor: zoom-in">
+        </div>
+        <div class="col-md-4 col-6">
+          <img src="tour/flyer_5.jpg" class="img-fluid" style="cursor: zoom-in">
+        </div>
+        <div class="col-md-4 col-6">
+          <img src="tour/flyer_6.jpg" class="img-fluid" style="cursor: zoom-in">
+        </div>
+      </div>
+    </div>
+  
+ 
+<div class="modal" id="imageModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body">
+        <img src="" id="modalImage" class="img-fluid" style="cursor: zoom-out">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const images = document.querySelectorAll('.flyer .img-fluid');
+    const modal = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage');
+
+    images.forEach(function (image) {
+      image.addEventListener('click', function () {
+        const src = this.src.replace('/tour/', '/tour/1080/');
+        modalImage.src = src;
+        modal.style.display = 'block';
+      });
+    });
+
+    modal.addEventListener('click', function (event) {
+      if (event.target === modal || event.target.getAttribute('id') === 'modalImage') {
+        modal.style.display = 'none';
+      }
+    });
+  });
+</script>
+
+<div class="mb-4"></div>
+<br><br>
+    
+<!--Fin bloque flyers-->
+   
+  </div><!--Cierro container tabla-->
+
+</div><!--Cierro fondo negro-->
+
+
+
+<div style="background-color: #000000bf"><!--Abro fondo transparente-->
+
+      <div class="container">
+      
+        <section id="news" class="section"><!--NEWS SECTION-->
+          <br><br><br>
+                <div class="section-title text-center">
+                    <h2>N<i>EW</i>S</h2>
+                </div>
+        </section>
+      
+        <div class="mb-4"></div>
+      
+        <div class="clearfix">
+          
+          <img src="news/gustocks.jpg" class="col-md-6 float-md-end mb-2 ms-md-3 img-fluid">
+
+          <div class="news_text">
+            <p>
+            <div class="news_title">LOS GUSTOCKS</div>es la banda liderada por Fabián "Zorrito" Von Quintiero e integrada por talentosos artistas de la escena musical argentina.
+            </p>
+      
+            <p>La propuesta artística de Los Gustocks es un recorrido por los clásicos reversionados del rock nacional e internacional procurando generar una experiencia
+              y un vínculo con el público basado en el concepto de "<i>encuentro de amigos</i>".
+            </p>
+      
+            <p>
+            Los Gustocks se han presentado en shows en Punta del Este, la Costa Atlántica Argentina, Nueva York y distintos espacios de música en vivo del país,
+            tocando junto a numerosos artistas de la escena musical.
+            </p>
+          </div>
+        </div>
+      
+        <div class="mb-5"></div>
+      
+
+        <div class="row justify-content-center">
+      
+          <div class="col-sm-12 col-md-11 mb-4 bd-callout bd-callout-warning shadow">
+      
+            <div class="d-flex position-relative px-4">
+              <img src="news/n-1.jpg" class="rounded flex-shrink-0 me-4" style="width: 110px; height: 108px" alt="...">
+            <div>
+                <div class="nota_text">
+                  <div class="news_fuente">Clarín</div>
+                  <div class="h5 pb-1 mb-3 text-danger border-bottom border-danger">
+                    Zorrito Von Quintiero: "Soy un custodio de la obra solista de Charly"
+                  </div>
+                  <p>Me formé escuchando Charly, Spinetta, Manal o Pappo. Era como leer a Castaneda, Borges o Cortázar.</p>
+                </div>
+                <a href="https://www.clarin.com/viva/zorrito-von-quintiero-custodio-obra-solista-charly-_0_sMfgU6yUcD.html" target="_blank" class="stretched-link"></a>
+              </div>
+            </div>
+      
+          </div>
+      
+
+          <div class="col-sm-12 col-md-11 mb-4 bd-callout bd-callout-warning shadow">
+      
+            <div class="d-flex position-relative px-4">
+              <img src="news/n-2.jpg" class="rounded flex-shrink-0 me-4" style="width: 110px; height: 108px" alt="...">
+              <div>
+                <div class="nota_text">
+                  <div class="news_fuente">Bando Producciones</div>
+                  <div class="h5 pb-1 mb-3 text-danger border-bottom border-danger">
+                    Los Gustocks - Live Sessions
+                  </div>
+                  <p>Los Gustocks brindaron un show vía streaming, interpretando grandes clásicos de acá y de allá.</p>
+                </div>
+                  <a href="https://www.youtube.com/watch?v=QXn3ona7wg8" target="_blank" class="stretched-link"></a>
+              </div>
+            </div>
+      
+          </div>
+
+      
+          <div class="col-sm-12 col-md-11 mb-4 bd-callout bd-callout-warning shadow">
+      
+            <div class="d-flex position-relative px-4">
+              <img src="news/n-3.jpg" class="rounded flex-shrink-0 me-4" style="width: 110px; height: 108px" alt="...">
+              <div>
+                <div class="nota_text">
+                  <div class="news_fuente">Urbana Play</div>
+                  <div class="h5 pb-1 mb-3 text-danger border-bottom border-danger">
+                    Zorrito Von Quintiero & Los Gustocks, un gran momento musical en Todo Pasa
+                  </div>
+                  <p>La banda presentó los clásicos reversionados del rock nacional.</p>
+                </div>
+                  <a href="https://www.youtube.com/watch?v=Jqo3dRqBC3Y" target="_blank" class="stretched-link"></a>
+              </div>
+            </div>
+      
+          </div>
+      
+      
+          <div class="col-sm-12 col-md-11 mb-4 bd-callout bd-callout-warning shadow">
+      
+            <div class="d-flex position-relative px-4">
+              <img src="news/n-4.jpg" class="rounded flex-shrink-0 me-4" style="width: 110px; height: 108px" alt="...">
+              <div>
+                <div class="nota_text">
+                  <div class="news_fuente">Televisión Pública</div>
+                  <div class="h5 pb-1 mb-3 text-danger border-bottom border-danger">
+                    Los Gustocks se presentaron en Anfitrión, de Lito Vitale
+                  </div>
+                  <p>Lito Vitale presenta un nuevo espacio para la cultura musical nacional. El reconocido intérprete oficia de anfitrión para que músicos y artistas invitados toquen y canten sus clásicos desde su casa, en el marco de charlas y encuentros cordiales.</p>
+                </div>
+                <a href="https://www.youtube.com/watch?v=Z1upt9WLn5I" target="_blank" class="stretched-link"></a>
+              </div>
+            </div>
+            
+          </div>
+
+
+          <div class="col-sm-12 col-md-11 mb-4 bd-callout bd-callout-warning shadow">
+      
+            <div class="d-flex position-relative px-4">
+              <img src="news/n-5.jpg" class="rounded flex-shrink-0 me-4" style="width: 110px; height: 108px" alt="...">
+              <div>
+                <div class="nota_text">
+                  <div class="news_fuente">Experiencia La Costa</div>
+                  <div class="h5 pb-1 mb-3 text-danger border-bottom border-danger">
+                    El "Zorrito" y Los Gustocks en Costa del Este
+                  </div>
+                  <p>Los Gustocks se presentaron en Costa del Este con un excelente recital haciendo vibrar a la audiencia con versiones del rock nacional e internacional.</p>
+                </div>
+                  <a href="https://www.youtube.com/watch?v=5yg0rXWQiKI" target="_blank" class="stretched-link"></a>
+              </div>
+            </div>
+      
+          </div>
+      
+        </div>
+      
+      </div> <!--Cierro container-->
+
+   </div> <!--Cierro fondo transparente-->
+
+
+<div style="background-color: black"><!--Abro fondo negro-->
+  
+      <div class="container"><!--Abro container staff-->
+
+        <section id="staff" class="section"><!--STAFF SECTION-->
+          <br><br><br>
+              <div class="section-title text-center">
+                  <h2>ST<i>AF</i>F</h2>
+              </div>
+        </section>
+        
+        <div class="mb-4"></div>
+        
+          <div class="row">
+        
+            <div class="col-sm-12 col-md-4">
+              <div class="card mb-5 imgZoomContainer">
+                <div class="overflow rounded-top"><img src="staff/card1.jpg" class="fx-hover-zoom mov" alt="..."></div>
+                  <div class="card-body" style="background-position: 50% 40%">
+                    <div class="card-title">ZORRITO 'VON' QUINTIERO<p>
+                      <a href="https://www.instagram.com/zorritovon/" class="link-ig" target="_blank">@zorritovon</a>
+                    </div>
+                    <p class="card-text">Frontman y fundador de 'Los Gustocks'. El Zorrito es un todo terreno, formó parte de la banda de Charly García, Soda Stereo y Ratones Paranoicos.</p>
+                  </div>
+              </div>
+            </div>
+        
+            <div class="col-sm-12 col-md-4">
+              <div class="card mb-5 imgZoomContainer">
+                <div class="overflow rounded-top"><img src="staff/card2.jpg" class="fx-hover-zoom mov" alt="..."></div>
+                  <div class="card-body" style="background-position: 90% 20%">
+                    <div class="card-title">IKE PARODI<p>
+                      <a href="https://www.instagram.com/ike_parodi/" class="link-ig" target="_blank">@ike_parodi</a>
+                    </div>
+                    <p class="card-text">Cantante rosarino, músico y voz líder de 'Los Gustocks'. Fundador de la banda que integra actualmente 'Ike y Los Picantes'.</p>
+                  </div>
+              </div>
+            </div>
+        
+            <div class="col-sm-12 col-md-4">
+              <div class="card mb-5 imgZoomContainer">
+                <div class="overflow rounded-top"><img src="staff/card3.jpg" class="fx-hover-zoom mov" alt="..."></div>
+                  <div class="card-body" style="background-position: 100% 10%">
+                    <div class="card-title">PALMO ADDARIO<p>
+                      <a href="https://www.instagram.com/palmoaddario/" class="link-ig" target="_blank">@palmoaddario</a>
+                    </div>
+                    <p class="card-text">Músico y guitarrista, compartió escenario con Pappo y Lebón, con quien produjo y grabó un disco que contó con la participación de Charly García.</p>
+                  </div>
+              </div>
+            </div>
+            
+            <div class="col-sm-12 col-md-4">
+              <div class="card mb-5 imgZoomContainer">
+                <div class="overflow rounded-top"><img src="staff/card4.jpg" class="fx-hover-zoom mov" alt="..."></div>
+                  <div class="card-body" style="background-position: 50% 50%">
+                    <div class="card-title">LARRY CUFFIA<p>
+                      <a href="https://www.instagram.com/larrynormal/" class="link-ig" target="_blank">@larrynormal</a>
+                    </div>
+                    <p class="card-text">Tecladista con años de trayectoria en la industria y productor musical de varios artistas, entre ellos: Lola Cobach, Ine Maguire y Nico Bereciartúa.</p>
+                  </div>
+              </div>
+            </div>
+        
+            <div class="col-sm-12 col-md-4">
+              <div class="card mb-5 imgZoomContainer">
+                <div class="overflow rounded-top"><img src="staff/card5.jpg" class="fx-hover-zoom mov" alt="..."></div>
+                  <div class="card-body" style="background-position: 100% 20%">
+                    <div class="card-title">MARIO LAURINO<p>
+                      <a href="https://www.instagram.com/laurinomario/" class="link-ig" target="_blank">@laurinomario</a>
+                    </div>
+                    <p class="card-text">Baterista, integra también la banda junto a Ike y Los Picantes. 
+                    De día trabaja como preceptor, de noche despliega su gran pasión por la música.</p>
+                  </div>
+              </div>
+            </div>
+        
+            <div class="col-sm-12 col-md-4">
+              <div class="card mb-5 imgZoomContainer">
+                <div class="overflow rounded-top"><img src="staff/card6.jpg" class="fx-hover-zoom mov" alt="..."></div>
+                  <div class="card-body" style="background-position: 90% 10%">
+                    <div class="card-title">FEDERICO 'DINAMITA' PEREDA<p>
+                      <a href="https://www.instagram.com/dinamitaswing/" class="link-ig" target="_blank">@dinamitaswing</a>
+                    </div>
+                    <p class="card-text">Músico y cantante uruguayo, con más de 20 años en la industria. Habiendo tocado en New York busca encarnar la lucha por dejar en alto la bandera del Rock'n Roll.</p>
+                  </div>
+              </div>
+            </div>
+
+          </div><!--Cierro row-->
+        
+        </div><!--Cierro container staff-->
+
+
+<div class="container"> <!--Abro container videos-->
+
+  <section id="videos" class="section"><!--VIDEOS SECTION-->
+    <br><br><br>
+          <div class="section-title text-center">
+              <h2>Clips<I>Modernos</i></h2>
+              <h4 style="color: #9b9d9e; font-weight: lighter">SHOWS & BACKSTAGE</h4>
+          </div>
+  </section>
+
+  <div class="mb-2"></div>
+
+  <div class="section-sliderv">
+    <video class="" id="slider" style="border-radius: 0.188rem" controls poster="media/poster.jpg">
+      <source src="media/vid-1.mp4" type="video/mp4">
+      Tu navegador no soporta el elemento de video.
+    </video>
+  </div>
+
+
+  <div class="col-sm-3 col-md-3 mx-auto mt-3" style="text-align: center">
+    <a href="https://losgustocks.github.io/zorritovon/videos" class="btn btn-sm btn-outline-danger ripple rounded-0" style="letter-spacing: 0.1rem; font-weight: 500" target="_blank" >VER VIDEOS</a>
+  </div>
+
+
+  <script>
+    const videoUrl = (url) => {
+      const video = document.getElementById('slider');
+      video.src = url;
+      video.play();
+    };
+
+    // Se ejecuta el video al hacer clic sobre la imagen poster
+    const posterImage = document.querySelector('[poster="media/poster.jpg"]');
+    posterImage.addEventListener('click', function () {
+    const firstVideoUrl = "media/vid-1.mp4";
+    videoUrl(firstVideoUrl);
+    });
+  </script>
+
+</div> <!--Cierro container videos-->
+
+
+<div class="mb-4"></div>
+
+<div class="container">
+
+  <section id="fotos" class="section"><!--FOTOS SECTION-->
+      <br><br><br>
+          <div class="section-title text-center">
+              <h2>GI<i>RA</i>ND<i>O</i></h2>
+          </div>
+  </section>
+
+  <div class="mb-4"></div>
+
+  <!-- Carousel -->
+
+  <div class="carousel-container">
+
+    <div id="carouselExampleCaptions" class="carousel slide"  data-bs-touch="false" data-bs-interval="false">
+
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="fotos/s1.jpg" class="d-block w-100">
+          </div>
+
+          <div class="carousel-item">
+            <img src="fotos/s2.jpg" class="d-block w-100">
+          </div>
+
+          <div class="carousel-item">
+            <img src="fotos/s3.jpg" class="d-block w-100">
+          </div>
+
+          <div class="carousel-item">
+            <img src="fotos/s4.jpg" class="d-block w-100">
+          </div>
+
+          <div class="carousel-item">
+            <img src="fotos/s5.jpg" class="d-block w-100">
+          </div>
+
+          <div class="carousel-item">
+            <img src="fotos/s6.jpg" class="d-block w-100">
+          </div>
+
+          <div class="carousel-item">
+            <img src="fotos/s7.jpg" class="d-block w-100">
+          </div>
+
+          <div class="carousel-item">
+            <img src="fotos/s8.jpg" class="d-block w-100">
+          </div>
+
+          <div class="carousel-item">
+            <img src="fotos/s9.jpg" class="d-block w-100">
+          </div>
+        
+          <div class="carousel-item">
+            <img src="fotos/s10.jpg" class="d-block w-100">
+          </div>
+        </div>
+
+        <div class="col-sm-3 col-md-3 mx-auto mt-3" style="text-align: center">
+          <a href="https://losgustocks.github.io/zorritovon/girando" class="btn btn-sm btn-outline-danger ripple rounded-0" style="letter-spacing: 0.1rem; font-weight: 500" target="_blank" >VER MÁS FOTOS</a>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+    </div>
+
+</div><!--Cierro container carousel-->
+
+<br><br><br>
+
+</div><!--Cierro fondo negro-->
+
+<div style="background-color: #000000bf"><!--Abro fondo transparente-->
+
+   <section id="follow" class="section"><!--FOLLOW SECTION-->
+    <br><br><br>
+        <div class="section-title text-center">
+          <h2>INSTA<i>FOLLOW</i></h2>
+          <h4 style="color: #9b9d9e; font-weight: lighter">SEGUINOS EN INSTAGRAM</h4>
+        </div>
+    </section>
+
+    <div class="mb-4"></div>
+
+  <div class="container grid-follow">
+
+    <div class="row justify-content-center"><!--Cantidad de filas: 3-->
+
+        <!--Abro contenedor BIO-->
+        <div class="container mt-4 flex justify-content-center">
+          <div class="row" style="margin-right: 4.2em">
+            <div class="col-md-5 text-end">
+              <a href="https://www.instagram.com/los_gustocks/" target="_blank">
+                <img src="instagram/pic-bio.jpg" class="img-fluid rounded-circle border-i" style="margin-top: -0.9rem" alt="Imagen">
+              </a>
+            </div>
+            <div class="col-md-7">
+              <a href="https://www.instagram.com/los_gustocks/" class="title-bio" target="_blank">
+                  Los Gustocks
+                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><style>svg{fill:#ff1074;;margin-bottom: 0.2em;}</style><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+              </a>
+              <div class="subtit-bio">Official Fansite</div>
+            </div>
+          </div>
+        </div>
+        <!--Cierro contenedor BIO-->
+  
+
+        <div class="w-100"></div><!--Obliga a las siguientes columnas a pasar a una nueva línea-->
+            
+        <div class="mb-5"></div><!--Aplico un margen para separar la grilla-->
+
+        <div class="col-2 px-1">
+          <a href="https://www.instagram.com/p/Cv3ZB3RMKKH/" target="_blank">
+            <img src="instagram/ig-1.jpg" class="img-fluid d-block w-100">
+          </a>
+        </div>
+
+        <div class="col-2 px-1">
+          <a href="https://www.instagram.com/p/CvYElB_uJqb/" target="_blank">
+            <img src="instagram/ig-2.jpg" class="img-fluid d-block w-100">
+          </a>
+        </div>
+
+        <div class="col-2 px-1">
+          <a href="https://www.instagram.com/p/CutJii0s4-D/" target="_blank">
+            <img src="instagram/ig-3.jpg" class="img-fluid d-block w-100">
+          </a>
+        </div>
+
+        <div class="w-100"></div><!--Obliga a las siguientes columnas a pasar a una nueva línea-->
+
+        <!--FIN FILA 1-->
+
+        <div class="col-2 px-1">
+          <a href="https://www.instagram.com/p/Cpn3Kt5uegp/" target="_blank">
+            <img src="instagram/ig-4.jpg" class="img-fluid d-block w-100">
+          </a>
+        </div>
+
+        <div class="col-2 px-1">
+          <a href="https://www.instagram.com/p/ClCGPJdMPxq/" target="_blank">
+            <img src="instagram/ig-5.jpg" class="img-fluid d-block w-100">
+          </a>
+        </div>
+
+        <div class="col-2 px-1">
+          <a href="https://www.instagram.com/p/Cs-dP1xMffT/" target="_blank">
+            <img src="instagram/ig-6.jpg" class="img-fluid d-block w-100">
+          </a>
+        </div>
+
+        <div class="w-100"></div><!--Obliga a las siguientes columnas a pasar a una nueva línea-->
+
+        <!--FIN FILA 2-->
+
+        <div class="col-2 px-1">
+          <a href="https://www.instagram.com/p/CphzYiwP8Bh/" target="_blank">
+            <img src="instagram/ig-7.jpg" class="img-fluid d-block w-100">
+          </a>
+        </div>
+
+        <div class="col-2 px-1">
+          <a href="https://www.instagram.com/p/CntFkc5DqzB/" target="_blank">
+            <img src="instagram/ig-8.jpg" class="img-fluid d-block w-100">
+          </a>
+        </div>
+
+        <div class="col-2 px-1">
+          <a href="https://www.instagram.com/p/CisdHd0OSMC/" target="_blank">
+            <img src="instagram/ig-9.jpg" class="img-fluid d-block w-100">
+          </a>
+        </div>
+
+        <!--FIN FILA 3-->
+
+    </div><!--Cierro row-->
+
+  </div><!--Cierro container follow-->
+
+  <br><br>
+
+</div><!--Cierro fondo transparente-->
+
+<div style="background-color: black"><!--Abro fondo negro-->
+  
+  <section id="spotify" class="section"><!--SPOTIFY SECTION-->
+    <br><br>
+        <div class="section-title text-center">
+          <h2>ROCK'<i>On</i></h2>
+          <h4 style="color: #9b9d9e; font-weight: lighter">UNITE A NUESTRA PLAYLIST!</h4>
+        </div>
+  </section>
+
+  <div class="mb-3"></div>
+
+  <div class="container">
+    <div class="playlist">
+      <a href="https://open.spotify.com/user/aimzorry?si=WFPp1_jlT62kE4nNPuA2Tg&nd=1" target="_blank">
+        <img src="spotify-grid.jpg" class="img-fluid">
+      </a>
+    </div>
+  </div>
+
+  <div class="mb-4"></div>
+
+    <hr style="color: #969899; border: 1px dotted; margin-top: 4rem"> <!--LÍNEA GRIS DIVISORIA-->
+
+    <section id="book" class="section"><!--BOOK SECTION-->
+    <br><br>
+        <div class="section-title text-center"></div>
+    </section>
+
+  <div class="container"> <!--Abro container libro-->
+ 
+    <div class="fx-border text-center">
+      <a href="https://www.planetadelibros.com.ar/libro-im-zorry/192590" target="_blank">
+        <img src="book/cover.jpg" class="img-fluid" loading="lazy" alt="Portada del libro">
+      </a>
+    </div>
+  
+    <div class="link">
+      <a href="https://www.planetadelibros.com.ar/libro-im-zorry/192590" target="_blank">
+        www.planetadelibros.com.ar
+      </a>
+    </div>
+
+  </div>
+
+
+  <div class="container"> <!--Abro container contact-->
+    
+  <hr style="color: #969899; border: 1px dotted; margin-top: 4rem"> <!--LÍNEA GRIS DIVISORIA-->
+
+    <section id="contact" class="section"><!--CONTACT SECTION-->
+      <br><br><br>
+          <div class="section-title text-center">
+              <h2>Contrataciones</h2>
+          </div>
+      </section>
+
+      <div class="mb-4"></div>
+
+
+<div class="subtit-contact text-center w-responsive mx-auto mb-5">Para presentaciones y eventos escribinos a: <a href="mailto:losgustocks@gmail.com" style="color: #dc3545">losgustocks@gmail.com</a>
+  <br>Envianos un WhatsApp:<br> +54 9 11-5509-7287<div class="mb-4"></div>
+  O completá el siguiente formulario:</div>
+
+  <div class="row justify-content-center">
+    <!--Grid column-->
+    <div class="col-md-9 mb-md-0 mb-5">
+      <form id="contact-form" name="contact-form" action="https://formsubmit.co/july7285@gmail.com" method="POST">
+        <!--Grid row-->
+        <div class="row">
+          <!--Grid column-->
+          <div class="col-md-6">
+            <div class="md-form mb-4">
+              <label for="Nombre">Nombre</label>
+              <input type="text" id="name" name="name" class="form-control">
+            </div>
+          </div>
+          <!--Grid column-->
+  
+          <!--Grid column-->
+          <div class="col-md-6">
+            <div class="md-form mb-4">
+              <label for="email">Correo Electrónico</label>
+              <input type="text" id="email" name="email" class="form-control">
+            </div>
+          </div>
+          <!--Grid column-->
+        </div>
+        <!--Grid row-->
+  
+        <!--Grid row-->
+        <div class="row">
+          <div class="col-md-12">
+            <div class="md-form mb-4">
+              <label for="subject">Asunto</label>
+              <input type="text" id="subject" name="subject" class="form-control">
+            </div>
+          </div>
+        </div>
+        <!--Grid row-->
+  
+        <!--Grid row-->
+        <div class="row">
+          <!--Grid column-->
+          <div class="col-md-12">
+            <div class="md-form">
+              <label for="message">Dejanos tu mensaje</label>
+              <textarea type="text" id="message" name="message" rows="5" class="form-control md-textarea"></textarea>
+            </div>
+          </div>
+        </div>
+        <!--Grid row-->
+  
+        <div class="mb-4"></div>
+  
+        <div class="col-12 text-center">
+          <input type="submit" class="btn btn-outline-danger ripple rounded-0" style="letter-spacing: 0.1rem; font-weight: 500;" value="ENVIAR" id="enviarBtn">
+        </div>
+        <div class="status"></div>
+  
+        <input type="hidden" name="_next" value="https://losgustocks.github.io/zorritovon/#index.html">
+        <input type="hidden" name="_captcha" value="false">
+      </form>
+    </div>
+  </div>
+  
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+      event.preventDefault(); // Evitar que el formulario se envíe por defecto
+  
+      var statusElement = document.querySelector('.status');
+      statusElement.style.display = 'none'; // Ocultar el mensaje inicialmente
+  
+      // Envía el formulario de forma real a través del botón ENVIAR
+      var formElement = document.getElementById('contact-form');
+      formElement.submit();
+  
+      // Retraso de 2 segundos antes de mostrar el mensaje
+      setTimeout(function() {
+        statusElement.innerText = 'El mensaje fue enviado con éxito.';
+        statusElement.style.display = 'block'; // Mostrar el mensaje
+        statusElement.style.color = 'white'; // Establecer el color de fuente
+        statusElement.style.backgroundColor = '#262626'; // Establecer el fondo
+        statusElement.style.padding = '0.188rem'; // Establecer el relleno
+        statusElement.style.borderRadius = '0.313rem'; // Establecer bordes redondeados
+        statusElement.style.textAlign = 'center'; // Centrar el texto
+        statusElement.style.marginTop = '1.313rem'; // Establecer margen superior
+        statusElement.style.fontSize = '1.5em'; // Establece el tamaño del texto
+
+       // Envía el formulario de forma real a través del botón ENVIAR
+      formElement.submit();
+
+      // Agregamos otra función setTimeout para ocultar el mensaje después de 5 segundos
+      setTimeout(function() {
+        statusElement.style.display = 'none';
+      }, 5000); // 5 segundos de retraso antes de ocultar el mensaje
+    }, 2000); // 2 segundos de retraso antes de mostrar el mensaje
+  });
+</script>
+
+</section>
+
+<br><br>
+
+</div> <!--Cierro fondo negro-->
+
+
+<footer class="text-center text-white" style="background-color: #262626">
+  <!-- Copyright -->
+  <div class="text-center p-3" style="color:#ffffffad; font-size: 0.9rem; font-weight: 400">
+   Copyright © Zorrito Von & Los Gustocks
+</footer>
+
+</body>
+</html>
+
+
