@@ -499,6 +499,13 @@ table {
   100% {background-position: 451px 0;}
 }
 
+/*IPHONE*/
+@media (max-width: 600px) {
+  .flyer-hoy {
+    width: 100% !important;
+  }
+}
+
 /*NEWS*/
 .news_title {
   font-family: 'Zen Tokyo Zoo';
@@ -815,15 +822,10 @@ label {
     cursor: pointer;
 }
 
-.playlist img {
-  width: 80%;
-  height: auto;
-}
-
 /*EN IPHONE*/
 @media (max-width: 600px) {
 .playlist img {
-  width: 100%;
+  width: 100% !important;
   }
 }
 
@@ -1100,7 +1102,7 @@ and (orientation : portrait) {
 
 <div class="fx-border text-center">
   <a href="https://livepass.com.ar/events/zorrito-von-los-gustocks-en-cafe-berlin" target="_blank">
-    <img src="tour/flyer.jpg" class="img-fluid" style="border: 0.188rem solid #dc3545;">
+    <img src="tour/flyer.jpg" class="img-fluid flyer-hoy">
   </a>
 </div>
 
