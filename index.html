@@ -933,26 +933,6 @@ and (orientation : portrait) {
   height: 3.938rem;
 }
 
-/*Backdrop*/
-#offcanvasBackdrop {
-  z-index: 1040; 
-  opacity: 0; /* Inicialmente transparente */
-  visibility: hidden; /* Inicialmente oculto */
-  transition: opacity 0.3s;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Ajusta el color y la opacidad*/
-  backdrop-filter: blur(5px); /* Ajusta el valor del desenfoque*/
-}
-
-.offcanvas.show + #offcanvasBackdrop {
-  opacity: 1; /* Hace el fondo oscuro visible */
-  visibility: visible;
-}
-
 </style>
 
 <body>
@@ -999,7 +979,6 @@ and (orientation : portrait) {
 </div>
 
 <!-- Menú Offcanvas -->
-<div id="offcanvasBackdrop" class="modal-backdrop fade"></div>
     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel">
       <div class="offcanvas-header">
           <h5 class="offcanvas-title" id="offcanvasMenuLabel"></h5>
